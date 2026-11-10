@@ -1,0 +1,23 @@
+PERBAIKAN TOMBOL PERTEMUAN 10
+
+Masalah:
+Tombol Pertemuan 10 sudah ada pada fragment_home.xml dan TenthActivity sudah terdaftar di AndroidManifest.xml, tetapi HomeFragment.kt belum memasang setOnClickListener untuk btnToTenth. Akibatnya tombol dapat ditekan tetapi tidak menjalankan halaman Pertemuan 10.
+
+Perbaikan:
+Ditambahkan listener berikut pada HomeFragment.kt:
+
+binding.btnToTenth.setOnClickListener {
+    startActivity(Intent(requireContext(), TenthActivity::class.java))
+}
+
+Bagian lain tidak diubah.
+
+Pengecekan:
+- 53 file XML berhasil diparse tanpa kesalahan sintaks XML.
+- ID btnToTenth tersedia pada fragment_home.xml.
+- Listener btnToTenth tersedia pada HomeFragment.kt.
+- TenthActivity terdaftar pada AndroidManifest.xml.
+- ViewBinding aktif pada app/build.gradle.kts.
+
+Catatan:
+Build Gradle tidak dapat dijalankan di lingkungan perbaikan karena Gradle Wrapper memerlukan unduhan Gradle 9.5.0 dari services.gradle.org, sementara koneksi internet lingkungan ini tidak tersedia. Lakukan Gradle Sync dan Run dari Android Studio yang terhubung internet untuk verifikasi build akhir.

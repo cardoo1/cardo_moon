@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">cardo_moon</string>
+    <string name="verif">Verification</string>
+    <string name="kode_berhasil">Kode Berhasil Dikirim</string>
+    <string name="Periksa">Silahkan Periksa Nomor Anda</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

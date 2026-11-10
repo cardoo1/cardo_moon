@@ -1,0 +1,47 @@
+package com.example.cardo_moon
+
+import android.content.Intent
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.cardo_moon.databinding.ActivityMainBinding
+import com.example.cardo_moon.databinding.ActivityThirdBinding
+import com.example.cardo_moon.Home.pertemuan_3.ThirdResultActivity
+import com.example.cardo_moon.Home.pertemuan_4.FourthActivity
+import com.example.cardo_moon.Home.pertemuan_5.FifthActivity
+
+
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+        binding.btnToFourth.setOnClickListener {
+            val i = Intent(this, FourthActivity::class.java)
+
+//            /tambahkan bagian berikut/
+            i.putExtra("name", "Politeknik Caltex Riau")
+            i.putExtra("from", "Rumbai")
+            i.putExtra("age", 25)
+
+            startActivity(i)
+
+            finish()
+        }
+        binding.btnToFifth.setOnClickListener {
+            val i = Intent(this, FifthActivity::class.java)
+            startActivity(i)
+        }
+    }
+}
